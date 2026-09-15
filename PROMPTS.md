@@ -25,3 +25,7 @@ Every prompt given to the AI for this project, in order, verbatim.
 ## 6
 
 > add the .gitattributes and push it
+
+## 7
+
+> I need a better README - include a prompt in a code block that installs the skill for the user.  Include a Kicad Skill image in it as well
