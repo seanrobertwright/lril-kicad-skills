@@ -21,3 +21,7 @@ Every prompt given to the AI for this project, in order, verbatim.
 ## 5
 
 > ok, I want you to publish this to my github as 'lril-kicad-skills'.  Make it a public repo.
+
+## 6
+
+> add the .gitattributes and push it
