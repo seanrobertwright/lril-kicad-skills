@@ -29,3 +29,11 @@ Every prompt given to the AI for this project, in order, verbatim.
 ## 7
 
 > I need a better README - include a prompt in a code block that installs the skill for the user.  Include a Kicad Skill image in it as well
+
+## 8
+
+> install the skills into my ~/.claude/skills and run kcs env
+
+## 9
+
+> push it
