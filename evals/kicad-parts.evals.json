@@ -1,0 +1,17 @@
+{
+  "skill_name": "kicad-parts",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Is C8734 a good choice for JLCPCB assembly, and what symbol/footprint should I use?",
+      "expected_output": "Runs kcs jlc C8734, reports STM32F103C8T6, extended part, price and stock, recommends the stock KiCad symbol MCU_ST_STM32F1:STM32F103C8Tx and footprint Package_QFP:LQFP-48_7x7mm_P0.5mm after checking them with kcs sym info / fp info.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Get me the KiCad library for this part: https://www.we-online.com/en/components/products/WE-CBF_SMT",
+      "expected_output": "Fetches the page, finds Würth's KiCad library on GitHub, downloads the relevant symbol/footprint, runs kcs upgrade and kcs klc, compares pads to the datasheet drawing, registers the library in design.json.",
+      "files": []
+    }
+  ]
+}

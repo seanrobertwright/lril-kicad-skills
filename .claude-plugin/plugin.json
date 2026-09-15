@@ -1,0 +1,7 @@
+{
+  "name": "kicad-skills",
+  "description": "Design schematics, PCBs, symbols and footprints in KiCad 10 with an interview-first, verify-everything workflow.",
+  "version": "0.1.0",
+  "author": {"name": "Sean Wright"},
+  "keywords": ["kicad", "pcb", "schematic", "electronics", "hardware"]
+}

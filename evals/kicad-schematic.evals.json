@@ -1,0 +1,23 @@
+{
+  "skill_name": "kicad-schematic",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Build the schematic and board for examples/stm32node/design.json into ./out and tell me whether it is correct.",
+      "expected_output": "Runs kcs spec validate then kcs build; reports 'netlist matches spec: True', ERC 0 errors, the DRC summary, opens the PDF with Read and comments on readability; does not claim the board is routed.",
+      "files": ["examples/stm32node/design.json"]
+    },
+    {
+      "id": 2,
+      "prompt": "Add a second I2C header J4 (4-pin, same pinout as J3) to the stm32node design and rebuild.",
+      "expected_output": "Edits design.json (component J4 with footprint, nets +3V3/GND/SCL/SDA), validates, rebuilds, confirms netlist match and ERC clean, mentions the pull-ups already exist so none are added.",
+      "files": ["examples/stm32node/design.json"]
+    },
+    {
+      "id": 3,
+      "prompt": "The spec has C7 pin 1 on both +3V3 and BOOT0. Build it.",
+      "expected_output": "Does not build. Reports the validator's 'pin on two nets' problem and asks which net is intended (or fixes it per DESIGN.md and says so).",
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "skill_name": "kicad-symbol",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Make a KiCad symbol for the TPS7A0233 in SOT-23-5 from the TI datasheet at https://www.ti.com/lit/ds/symlink/tps7a02.pdf",
+      "expected_output": "Downloads the PDF, runs kcs pins-from-pdf with --package DBV, shows the 5-pin draft table (IN, GND, EN, NC, OUT with types power_in/power_in/input/no_connect/power_out) with page numbers and asks for confirmation before symgen; generates MyParts.kicad_sym, runs kcs klc and sym info, renders an SVG and looks at it.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I need a symbol for the BME280. Here is the pinout: 1 GND, 2 CSB, 3 SDI, 4 SCK, 5 SDO, 6 VDDIO, 7 GND, 8 VDD",
+      "expected_output": "First checks the stock library (Sensor:BME280 exists) and recommends it instead of generating; only generates if the user insists, with types power_in for VDD/VDDIO/GND, input for CSB/SCK, bidirectional for SDI, output for SDO.",
+      "files": []
+    }
+  ]
+}

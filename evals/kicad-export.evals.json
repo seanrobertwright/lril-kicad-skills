@@ -1,0 +1,11 @@
+{
+  "skill_name": "kicad-export",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Export the stm32node board for JLCPCB with assembly.",
+      "expected_output": "Runs DRC first and refuses while the board is unrouted (67 unconnected); explains what is missing; after the user overrides, runs kcs fab --fab jlcpcb, lists the zip, pos and bom files, warns about missing LCSC numbers on passives and about rotation checks.",
+      "files": ["examples/stm32node/design.json"]
+    }
+  ]
+}

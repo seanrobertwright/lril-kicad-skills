@@ -1,0 +1,686 @@
+{
+ "project": "stm32node",
+ "title": "STM32 sensor node",
+ "rev": "A",
+ "paper": "A4",
+ "power_nets": [
+  "VBUS",
+  "+3V3",
+  "GND"
+ ],
+ "global_nets": [
+  "SWDIO",
+  "SWCLK"
+ ],
+ "groups": [
+  {
+   "name": "power",
+   "title": "USB input and 3.3V regulator"
+  },
+  {
+   "name": "mcu",
+   "title": "STM32F103 MCU"
+  },
+  {
+   "name": "io",
+   "title": "Debug, LED, I2C sensor header"
+  }
+ ],
+ "components": [
+  {
+   "ref": "J1",
+   "symbol": "Connector:USB_C_Receptacle_USB2.0_16P",
+   "value": "USB-C 16P",
+   "footprint": "Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12",
+   "group": "power",
+   "props": {
+    "MPN": "TYPE-C-31-M-12",
+    "LCSC": "C165948"
+   }
+  },
+  {
+   "ref": "R1",
+   "symbol": "Device:R",
+   "value": "5.1k",
+   "footprint": "Resistor_SMD:R_0603_1608Metric",
+   "group": "power"
+  },
+  {
+   "ref": "R2",
+   "symbol": "Device:R",
+   "value": "5.1k",
+   "footprint": "Resistor_SMD:R_0603_1608Metric",
+   "group": "power"
+  },
+  {
+   "ref": "U1",
+   "symbol": "Regulator_Linear:AMS1117-3.3",
+   "value": "AMS1117-3.3",
+   "footprint": "Package_TO_SOT_SMD:SOT-223-3_TabPin2",
+   "group": "power",
+   "props": {
+    "MPN": "AMS1117-3.3",
+    "LCSC": "C6186"
+   }
+  },
+  {
+   "ref": "C1",
+   "symbol": "Device:C",
+   "value": "10u",
+   "footprint": "Capacitor_SMD:C_0805_2012Metric",
+   "group": "power"
+  },
+  {
+   "ref": "C2",
+   "symbol": "Device:C",
+   "value": "22u",
+   "footprint": "Capacitor_SMD:C_0805_2012Metric",
+   "group": "power"
+  },
+  {
+   "ref": "U2",
+   "symbol": "MCU_ST_STM32F1:STM32F103C8Tx",
+   "value": "STM32F103C8T6",
+   "footprint": "Package_QFP:LQFP-48_7x7mm_P0.5mm",
+   "group": "mcu",
+   "props": {
+    "MPN": "STM32F103C8T6",
+    "LCSC": "C8734"
+   }
+  },
+  {
+   "ref": "C3",
+   "symbol": "Device:C",
+   "value": "100n",
+   "footprint": "Capacitor_SMD:C_0603_1608Metric",
+   "group": "mcu"
+  },
+  {
+   "ref": "C4",
+   "symbol": "Device:C",
+   "value": "100n",
+   "footprint": "Capacitor_SMD:C_0603_1608Metric",
+   "group": "mcu"
+  },
+  {
+   "ref": "C5",
+   "symbol": "Device:C",
+   "value": "100n",
+   "footprint": "Capacitor_SMD:C_0603_1608Metric",
+   "group": "mcu"
+  },
+  {
+   "ref": "C6",
+   "symbol": "Device:C",
+   "value": "100n",
+   "footprint": "Capacitor_SMD:C_0603_1608Metric",
+   "group": "mcu"
+  },
+  {
+   "ref": "C7",
+   "symbol": "Device:C",
+   "value": "1u",
+   "footprint": "Capacitor_SMD:C_0603_1608Metric",
+   "group": "mcu"
+  },
+  {
+   "ref": "Y1",
+   "symbol": "Device:Crystal_GND24",
+   "value": "8MHz",
+   "footprint": "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm",
+   "group": "mcu"
+  },
+  {
+   "ref": "C8",
+   "symbol": "Device:C",
+   "value": "20p",
+   "footprint": "Capacitor_SMD:C_0603_1608Metric",
+   "group": "mcu"
+  },
+  {
+   "ref": "C9",
+   "symbol": "Device:C",
+   "value": "20p",
+   "footprint": "Capacitor_SMD:C_0603_1608Metric",
+   "group": "mcu"
+  },
+  {
+   "ref": "R3",
+   "symbol": "Device:R",
+   "value": "10k",
+   "footprint": "Resistor_SMD:R_0603_1608Metric",
+   "group": "mcu"
+  },
+  {
+   "ref": "SW1",
+   "symbol": "Switch:SW_Push",
+   "value": "RESET",
+   "footprint": "Button_Switch_SMD:SW_SPST_PTS645Sx43SMTR92",
+   "group": "mcu"
+  },
+  {
+   "ref": "J2",
+   "symbol": "Connector_Generic:Conn_01x04",
+   "value": "SWD",
+   "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical",
+   "group": "io"
+  },
+  {
+   "ref": "J3",
+   "symbol": "Connector_Generic:Conn_01x04",
+   "value": "I2C",
+   "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical",
+   "group": "io"
+  },
+  {
+   "ref": "R4",
+   "symbol": "Device:R",
+   "value": "4.7k",
+   "footprint": "Resistor_SMD:R_0603_1608Metric",
+   "group": "io"
+  },
+  {
+   "ref": "R5",
+   "symbol": "Device:R",
+   "value": "4.7k",
+   "footprint": "Resistor_SMD:R_0603_1608Metric",
+   "group": "io"
+  },
+  {
+   "ref": "D1",
+   "symbol": "Device:LED",
+   "value": "GREEN",
+   "footprint": "LED_SMD:LED_0603_1608Metric",
+   "group": "io"
+  },
+  {
+   "ref": "R6",
+   "symbol": "Device:R",
+   "value": "1k",
+   "footprint": "Resistor_SMD:R_0603_1608Metric",
+   "group": "io"
+  },
+  {
+   "ref": "R7",
+   "symbol": "Device:R",
+   "value": "10k",
+   "footprint": "Resistor_SMD:R_0603_1608Metric",
+   "group": "mcu"
+  },
+  {
+   "ref": "C10",
+   "symbol": "Device:C",
+   "value": "100n",
+   "footprint": "Capacitor_SMD:C_0603_1608Metric",
+   "group": "mcu"
+  }
+ ],
+ "nets": {
+  "VBUS": [
+   [
+    "J1",
+    "A4"
+   ],
+   [
+    "J1",
+    "A9"
+   ],
+   [
+    "J1",
+    "B4"
+   ],
+   [
+    "J1",
+    "B9"
+   ],
+   [
+    "U1",
+    "3"
+   ],
+   [
+    "C1",
+    "1"
+   ]
+  ],
+  "GND": [
+   [
+    "J1",
+    "A1"
+   ],
+   [
+    "J1",
+    "A12"
+   ],
+   [
+    "J1",
+    "B1"
+   ],
+   [
+    "J1",
+    "B12"
+   ],
+   [
+    "J1",
+    "SH"
+   ],
+   [
+    "U1",
+    "1"
+   ],
+   [
+    "C1",
+    "2"
+   ],
+   [
+    "C2",
+    "2"
+   ],
+   [
+    "U2",
+    "8"
+   ],
+   [
+    "U2",
+    "23"
+   ],
+   [
+    "U2",
+    "35"
+   ],
+   [
+    "U2",
+    "47"
+   ],
+   [
+    "C3",
+    "2"
+   ],
+   [
+    "C4",
+    "2"
+   ],
+   [
+    "C5",
+    "2"
+   ],
+   [
+    "C6",
+    "2"
+   ],
+   [
+    "C7",
+    "2"
+   ],
+   [
+    "Y1",
+    "2"
+   ],
+   [
+    "Y1",
+    "4"
+   ],
+   [
+    "C8",
+    "2"
+   ],
+   [
+    "C9",
+    "2"
+   ],
+   [
+    "SW1",
+    "2"
+   ],
+   [
+    "J2",
+    "4"
+   ],
+   [
+    "J3",
+    "4"
+   ],
+   [
+    "D1",
+    "1"
+   ],
+   [
+    "R1",
+    "2"
+   ],
+   [
+    "R2",
+    "2"
+   ],
+   [
+    "R7",
+    "2"
+   ],
+   [
+    "C10",
+    "2"
+   ]
+  ],
+  "+3V3": [
+   [
+    "U1",
+    "2"
+   ],
+   [
+    "C2",
+    "1"
+   ],
+   [
+    "U2",
+    "1"
+   ],
+   [
+    "U2",
+    "9"
+   ],
+   [
+    "U2",
+    "24"
+   ],
+   [
+    "U2",
+    "36"
+   ],
+   [
+    "U2",
+    "48"
+   ],
+   [
+    "C3",
+    "1"
+   ],
+   [
+    "C4",
+    "1"
+   ],
+   [
+    "C5",
+    "1"
+   ],
+   [
+    "C6",
+    "1"
+   ],
+   [
+    "R3",
+    "1"
+   ],
+   [
+    "J2",
+    "1"
+   ],
+   [
+    "J3",
+    "1"
+   ],
+   [
+    "R4",
+    "1"
+   ],
+   [
+    "R5",
+    "1"
+   ],
+   [
+    "C7",
+    "1"
+   ]
+  ],
+  "CC1": [
+   [
+    "J1",
+    "A5"
+   ],
+   [
+    "R1",
+    "1"
+   ]
+  ],
+  "CC2": [
+   [
+    "J1",
+    "B5"
+   ],
+   [
+    "R2",
+    "1"
+   ]
+  ],
+  "OSC_IN": [
+   [
+    "U2",
+    "5"
+   ],
+   [
+    "Y1",
+    "1"
+   ],
+   [
+    "C8",
+    "1"
+   ]
+  ],
+  "OSC_OUT": [
+   [
+    "U2",
+    "6"
+   ],
+   [
+    "Y1",
+    "3"
+   ],
+   [
+    "C9",
+    "1"
+   ]
+  ],
+  "NRST": [
+   [
+    "U2",
+    "7"
+   ],
+   [
+    "R3",
+    "2"
+   ],
+   [
+    "SW1",
+    "1"
+   ],
+   [
+    "C10",
+    "1"
+   ]
+  ],
+  "SWDIO": [
+   [
+    "U2",
+    "34"
+   ],
+   [
+    "J2",
+    "2"
+   ]
+  ],
+  "SWCLK": [
+   [
+    "U2",
+    "37"
+   ],
+   [
+    "J2",
+    "3"
+   ]
+  ],
+  "SCL": [
+   [
+    "U2",
+    "42"
+   ],
+   [
+    "J3",
+    "2"
+   ],
+   [
+    "R4",
+    "2"
+   ]
+  ],
+  "SDA": [
+   [
+    "U2",
+    "43"
+   ],
+   [
+    "J3",
+    "3"
+   ],
+   [
+    "R5",
+    "2"
+   ]
+  ],
+  "LED": [
+   [
+    "U2",
+    "2"
+   ],
+   [
+    "R6",
+    "1"
+   ]
+  ],
+  "BOOT0": [
+   [
+    "U2",
+    "44"
+   ],
+   [
+    "R7",
+    "1"
+   ]
+  ],
+  "LED_A": [
+   [
+    "R6",
+    "2"
+   ],
+   [
+    "D1",
+    "2"
+   ]
+  ]
+ },
+ "no_connect": [
+  [
+   "J1",
+   "A6"
+  ],
+  [
+   "J1",
+   "A7"
+  ],
+  [
+   "J1",
+   "B6"
+  ],
+  [
+   "J1",
+   "B7"
+  ],
+  [
+   "J1",
+   "A8"
+  ],
+  [
+   "J1",
+   "B8"
+  ]
+ ],
+ "board": {
+  "width": 55,
+  "height": 45,
+  "layers": 2,
+  "corner_radius": 2,
+  "zones": [
+   {
+    "net": "GND",
+    "layer": "B.Cu"
+   }
+  ],
+  "mounting_holes": {
+   "inset": 4,
+   "count": 2
+  },
+  "placement": {},
+  "fab": "jlcpcb",
+  "hints": {
+   "J1": {
+    "edge": "left",
+    "rot": 90
+   },
+   "U2": {
+    "center": true
+   },
+   "C3": {
+    "near": "U2"
+   },
+   "C4": {
+    "near": "U2"
+   },
+   "C5": {
+    "near": "U2"
+   },
+   "C6": {
+    "near": "U2"
+   },
+   "Y1": {
+    "near": "U2"
+   },
+   "J2": {
+    "edge": "right",
+    "rot": 90
+   },
+   "J3": {
+    "edge": "right",
+    "rot": 90
+   },
+   "U1": {
+    "near": "J1"
+   },
+   "C10": {
+    "near": "U2"
+   }
+  }
+ },
+ "unused_pins_nc": [
+  "U2"
+ ],
+ "sheets": [
+  {
+   "name": "Power",
+   "file": "power.kicad_sch",
+   "groups": [
+    "power"
+   ]
+  },
+  {
+   "name": "MCU",
+   "file": "mcu.kicad_sch",
+   "groups": [
+    "mcu"
+   ]
+  },
+  {
+   "name": "IO",
+   "file": "io.kicad_sch",
+   "groups": [
+    "io"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+  "skill_name": "kicad-interview",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I want to build a small board with an ESP32-C3 that reads a BME280 and shows the temperature on an I2C OLED, powered from USB-C. Let's design it.",
+      "expected_output": "Does not draw anything. Asks exactly one question per turn, starting with purpose/quantity/assembly, states why it matters and gives a recommended answer. Creates design/DESIGN.md and design/design.json early and updates them after each answer with a source tag. Does not pick an LDO, connector, or passive size without asking. Asks about every ESP32-C3 strap pin and unused pin before validation passes. Ends with a design contract summary and an explicit approval request.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Here is my DESIGN.md from last week, continue the interview where we left off. (design/DESIGN.md exists with open questions about the battery charger and the debug connector)",
+      "expected_output": "Reads DESIGN.md, lists the open questions, resumes with the first open question, does not re-ask decided items, keeps the decision log format.",
+      "files": ["design/DESIGN.md"]
+    },
+    {
+      "id": 3,
+      "prompt": "Just give me a 3.3 V regulator board from 12 V, whatever you think is best, I don't want a hundred questions.",
+      "expected_output": "Still asks the questions that change the design materially (current, LDO vs buck with the dissipation number, connector, quantity/assembly), records 'recommended-accepted' for the rest, keeps it short, and produces a validated design.json before building.",
+      "files": []
+    }
+  ]
+}

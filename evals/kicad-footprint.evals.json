@@ -1,0 +1,17 @@
+{
+  "skill_name": "kicad-footprint",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a footprint for a QFN-20 3x3 mm, 0.4 mm pitch, exposed pad 1.65x1.65 mm, lead 0.2 x 0.4 mm.",
+      "expected_output": "Searches the stock library first (Package_DFN_QFN has QFN-20_3x3mm_P0.4mm variants) and recommends the stock footprint; if generating, uses kcs fpgen kind no_lead with the given dimensions, runs kcs klc, drops it on a scratch board for DRC, and reports pad sizes.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The manufacturer gives a recommended land pattern for this connector on page 4 of the datasheet; make the footprint match it exactly.",
+      "expected_output": "Reads the drawing, transcribes pad positions/sizes into a custom FootprintSpec (not the IPC generator), asks the user to confirm the numbers, verifies with fp info and an SVG render, and records the page number.",
+      "files": []
+    }
+  ]
+}
