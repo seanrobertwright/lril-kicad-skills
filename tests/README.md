@@ -8,3 +8,7 @@ and the bundled `pcbnew` Python). Run each with any Python 3.10+:
 - `test_sym.py` - symbol generator, project library, ERC/netlist round trip
 - `test_fp.py` - footprint generator vs. stock KiCad footprints (pad deltas), DRC
 - `test_e2e.py` - full build of `examples/stm32node/design.json`
+
+`test_geom_unit.py` is a `unittest` module for the `geom` input checks and
+point helpers. It needs no KiCad install. Run it from the repo root with
+`python -m unittest tests/test_geom_unit.py -v`.

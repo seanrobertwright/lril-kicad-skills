@@ -12,6 +12,8 @@ GRID = 1.27  # 50 mil schematic grid, mm
 
 
 def snap(v: float, grid: float = GRID) -> float:
+    if grid <= 0:
+        raise ValueError("grid must be positive")
     return round(round(v / grid) * grid, 4)
 
 
@@ -21,6 +23,30 @@ def snap_pt(pt: tuple[float, float], grid: float = GRID) -> tuple[float, float]:
 
 def on_grid(v: float, grid: float = GRID, tol: float = 1e-3) -> bool:
     return abs(v - snap(v, grid)) < tol
+
+
+def pt_on_grid(pt: tuple[float, float], grid: float = GRID, tol: float = 1e-3) -> bool:
+    return on_grid(pt[0], grid, tol) and on_grid(pt[1], grid, tol)
+
+
+def bbox_pts(pts) -> tuple[float, float, float, float]:
+    """``(min_x, min_y, max_x, max_y)`` of an iterable of points."""
+    pts = list(pts)
+    if not pts:
+        raise ValueError("bbox_pts needs at least one point")
+    xs = [p[0] for p in pts]
+    ys = [p[1] for p in pts]
+    return (min(xs), min(ys), max(xs), max(ys))
+
+
+def dist(a: tuple[float, float], b: tuple[float, float]) -> float:
+    """Euclidean distance between two 2D points."""
+    return math.hypot(b[0] - a[0], b[1] - a[1])
+
+
+def manhattan(a: tuple[float, float], b: tuple[float, float]) -> float:
+    """L1 Manhattan distance between two 2D points (for orthogonal wire routing)."""
+    return abs(b[0] - a[0]) + abs(b[1] - a[1])
 
 
 def rot_ccw(x: float, y: float, deg: float) -> tuple[float, float]:
@@ -62,7 +88,10 @@ def pin_direction(angle: float, rot: float = 0, mirror: str | None = None) -> tu
 
     In the library a pin's ``angle`` is the direction the pin *points into*
     the body from its connection end: 0 = body is to the right of the pin end.
+    Raises ``ValueError`` if ``angle`` is not a multiple of 90.
     """
+    if angle % 90 != 0:
+        raise ValueError(f"pin angle must be a multiple of 90, got {angle}")
     a = angle % 360
     # direction from connection end toward the body, in lib coords (Y up)
     toward = {0: (1, 0), 90: (0, 1), 180: (-1, 0), 270: (0, -1)}[int(a)]
@@ -73,3 +102,8 @@ def pin_direction(angle: float, rot: float = 0, mirror: str | None = None) -> tu
 def fmt_mm(v: float) -> str:
     s = f"{v:.4f}".rstrip("0").rstrip(".")
     return "0" if s in ("-0", "") else s
+
+
+def fmt_pt(pt: tuple[float, float]) -> str:
+    """Format a 2D coordinate pair using lossless KiCad S-expression mm formatting."""
+    return f"{fmt_mm(pt[0])} {fmt_mm(pt[1])}"
